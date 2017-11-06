@@ -10,9 +10,9 @@ int main()
 
 	sf::Text text;
 	text.setFont(font);
-	text.setPosition(200, 200);
-	text.setString("Hello SFML");
-
+	text.setPosition(400, 400);
+	text.setString("Pong");
+		
 	while (window.isOpen())
 	{
 		sf::Event event;
