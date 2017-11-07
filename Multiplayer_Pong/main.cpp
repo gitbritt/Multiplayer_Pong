@@ -1,18 +1,32 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include "GUI.h"
 
+//#include "stdafx.h"
+
+GUI::GUI()
+{
+
+}
+
+void GUI_Display();
+
+//Call GUI Function to display ball and paddles
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(800, 600),
-		"Hello SFML", sf::Style::Default);
+	GUI_Display();
+	return 0;
+}
 
-	sf::Font font;
-	font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
-
-	sf::Text text;
-	text.setFont(font);
-	text.setPosition(400, 400);
-	text.setString("Pong");
-		
+void GUI_Display()
+{
+	GUI gui;
+	sf::RenderWindow window(sf::VideoMode(1000, 600), "SFML works!");
+	sf::CircleShape ball = gui.ball();
+	sf::RectangleShape paddle1 = gui.paddle1();
+	sf::RectangleShape paddle2 = gui.paddle2();
+	sf::Text Score = gui.Score();
+	//GUI_Display();
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -21,10 +35,13 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+
 		window.clear();
-		window.draw(text);
+		window.draw(ball);
+		window.draw(paddle1);
+		window.draw(paddle2);
+		//window.draw(Score);
 		window.display();
 	}
 
-	return 0;
 }
