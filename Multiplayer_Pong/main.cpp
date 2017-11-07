@@ -20,13 +20,23 @@ int main()
 
 void GUI_Display()
 {
+	int Score1_num = 0, Score2_num = 0;
 	GUI gui;
 	sf::RenderWindow window(sf::VideoMode(1000, 600), "SFML works!");
 	sf::CircleShape ball = gui.ball();
 	sf::RectangleShape paddle1 = gui.paddle1();
 	sf::RectangleShape paddle2 = gui.paddle2();
-	sf::Text Score = gui.Score();
-	//GUI_Display();
+	sf::Text Score1;
+	sf::Text Score2;
+	sf::Font font;
+	font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
+	Score1.setFont(font);
+	Score2.setFont(font);
+	Score1.setPosition(800, 550);
+	Score2.setPosition(200, 550);
+	Score1.setString(std::to_string(Score1_num));
+	Score2.setString(std::to_string(Score2_num));
+	
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -40,7 +50,9 @@ void GUI_Display()
 		window.draw(ball);
 		window.draw(paddle1);
 		window.draw(paddle2);
-		//window.draw(Score);
+
+		window.draw(Score1);
+		window.draw(Score2);
 		window.display();
 	}
 
