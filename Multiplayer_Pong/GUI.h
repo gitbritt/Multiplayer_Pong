@@ -11,7 +11,8 @@ class GUI
 		sf::RectangleShape paddle1();
 		sf::RectangleShape paddle2();
 		sf::Text Score();
-
+		void paddle_moving_local(sf::RectangleShape paddle);
+		void ball_moving(sf::CircleShape ball);
 		GUI();
 };
 
