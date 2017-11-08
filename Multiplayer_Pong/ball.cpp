@@ -11,3 +11,10 @@ sf::CircleShape GUI::ball()
 
 	return ball;
 }
+
+void GUI::ball_moving(sf::CircleShape ball)
+{
+	std::cout << "Hello World";
+	sf::Event Event;
+
+}
