@@ -1,3 +1,4 @@
 ﻿  main.cpp
-c:\users\dillonbritt\source\repos\multiplayer_pong\multiplayer_pong\main.cpp(70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  ball.cpp
+  Generating Code...
   Multiplayer_Pong.vcxproj -> C:\Users\DillonBritt\source\repos\Multiplayer_Pong\Debug\Multiplayer_Pong.exe

@@ -20,3 +20,13 @@ sf::RectangleShape GUI::paddle2()
 	return paddle2;	
 }
 
+sf::RectangleShape GUI::paddle_moving_local(sf::RectangleShape local_paddle, sf::Event event)
+{
+	int y = event.mouseMove.y;
+	if (y <= 100)
+		y = 100;
+	else if (y >= 500)
+		y = 500;
+	local_paddle.setPosition(local_paddle.getPosition().x, y - 100);
+	return local_paddle;
+}
