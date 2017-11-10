@@ -2,7 +2,8 @@
 #include <iostream>
 #include "GUI.h"
 #include <tuple>
-
+#include <SFML/Network.hpp>
+#include "Networking.h"
 
 //#include "stdafx.h"
 
@@ -11,26 +12,42 @@ GUI::GUI()
 
 }
 GUI gui;
+Networking::Networking()
+{
+
+}
+Networking Net;
 sf::CircleShape ball = gui.ball();
 sf::RectangleShape paddle1 = gui.paddle1();
 sf::RectangleShape paddle2 = gui.paddle2();
 sf::RectangleShape local_paddle;
 sf::RectangleShape foreign_paddle;
-float change_direction_x = 0.25, change_direction_y = 0.25;
+float change_direction_x = 0.5, change_direction_y = 0.5;
 void GUI_Display(int player_number);
 
 //Call GUI Function to display ball and paddles
 int main()
 {
 	int player_number;
-	std::string this_machine_IP_address;
+	std::string join_start;
+	std::string IP_address;
+	std::cout << "Do you want to join or start a game. Type join or start : ";
+	std::cin >> join_start;
+	std::cout << "\nIp address = ";
+	std::cin >> IP_address;
+	
+	if (join_start == "join")
+	{
+		Net.Connection_Client(IP_address);	//Client is connecting to a game
+	}
+	else if (join_start == "start")
+	{
+		Net.Connection_Server(IP_address);	//You are hosting a game
+	}
+
 	std::cout << "Pick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
 	std::cin >> player_number;
-
-	std::cout << "Please enter your IP address : ";
-	std::cin >> this_machine_IP_address;
-
-
+	
 	GUI_Display(player_number);
 	return 0;
 }
