@@ -33,7 +33,7 @@ int main()
 	std::string IP_address;
 	std::cout << "Do you want to join or start a game. Type join or start : ";
 	std::cin >> join_start;
-	std::cout << "\nIp address = ";
+	std::cout << "\n ServerIp address you want to connect to = ";
 	std::cin >> IP_address;
 	
 	if (join_start == "join")
