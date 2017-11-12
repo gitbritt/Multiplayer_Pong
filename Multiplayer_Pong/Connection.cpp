@@ -5,11 +5,18 @@
 #include <tuple>
 #include <SFML/Network.hpp>
 
+
 void Networking::Connection_Server(std::string IP_address)
 {
-	sf::TcpListener listener;
-	//if (listener.listen(85) != sf::Socket::Done)
-	//	std::cout << "Failed!\n";
+	sf::UdpSocket socket;
+
+	// bind the socket to a port
+	//sf::IpAddress test;
+	if (socket.bind(54000) != sf::Socket::Done)
+	{
+		// error...
+	}
+	
 }
 
 void Networking::Connection_Client(std::string IP_address)
