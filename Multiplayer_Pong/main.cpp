@@ -2,7 +2,7 @@
 #include <iostream>
 #include "GUI.h"
 #include <tuple>
-
+//Synced with Eric
 
 //#include "stdafx.h"
 
