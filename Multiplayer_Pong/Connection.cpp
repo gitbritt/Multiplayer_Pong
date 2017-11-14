@@ -5,7 +5,7 @@
 #include <tuple>
 #include <SFML/Network.hpp>
 
-
+//This file manages the connection between the Client and the Server
 void Networking::Connection_Server(std::string IP_address)
 {
 	sf::IpAddress ip = sf::IpAddress::getLocalAddress();

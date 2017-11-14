@@ -55,12 +55,12 @@ int main()
 void GUI_Display(int player_number)
 {
 	int Score1_num = 0, Score2_num = 0;
-	sf::RenderWindow window(sf::VideoMode(1000, 600), "Multiplayer Pong");
-	sf::CircleShape ball = gui.ball();
-	sf::RectangleShape paddle1 = gui.paddle1();
-	sf::RectangleShape paddle2 = gui.paddle2();
-	sf::RectangleShape local_paddle;
-	sf::RectangleShape foreign_paddle;
+	sf::RenderWindow window(sf::VideoMode(1000, 600), "Multiplayer Pong");		//Sets the window size
+	sf::CircleShape ball = gui.ball();											//Function that declares the 
+	sf::RectangleShape paddle1 = gui.paddle1();									//Calls the 
+	sf::RectangleShape paddle2 = gui.paddle2();									//
+	sf::RectangleShape local_paddle;											//
+	sf::RectangleShape foreign_paddle;											//
 	if (player_number == 1)
 	{
 		local_paddle = paddle1;
