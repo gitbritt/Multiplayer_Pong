@@ -14,4 +14,4 @@ Setup
 	
 	https://www.sfml-dev.org/tutorials/2.4/
 	
-3.) Here is a link to a screen shot of the Visual Studio 
+3.) Here is a link to a screen shot of the Visual Studio. 
