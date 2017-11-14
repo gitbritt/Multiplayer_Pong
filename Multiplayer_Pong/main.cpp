@@ -2,8 +2,9 @@
 #include <iostream>
 #include "GUI.h"
 #include <tuple>
-//Synced with Eric
-//Synced with Michelle
+//Synced with Eric Claus
+//Synced with Michelle Amos
+//Dillon showing Eric and Michelle how git works. basics
 //#include "stdafx.h"
 
 GUI::GUI()
