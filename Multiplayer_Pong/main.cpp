@@ -17,15 +17,20 @@ sf::RectangleShape paddle1 = gui.paddle1();
 sf::RectangleShape paddle2 = gui.paddle2();
 sf::RectangleShape local_paddle;
 sf::RectangleShape foreign_paddle;
-float change_direction_x = 0.5, change_direction_y = 0.5;
+float change_direction_x = 0.25, change_direction_y = 0.25;
 void GUI_Display(int player_number);
 
 //Call GUI Function to display ball and paddles
 int main()
 {
 	int player_number;
+	std::string this_machine_IP_address;
 	std::cout << "Pick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
 	std::cin >> player_number;
+
+	std::cout << "Please enter your IP address : ";
+	std::cin >> this_machine_IP_address;
+
 
 	GUI_Display(player_number);
 	return 0;
