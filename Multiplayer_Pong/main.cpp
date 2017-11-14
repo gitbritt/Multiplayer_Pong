@@ -3,7 +3,7 @@
 #include "GUI.h"
 #include <tuple>
 //Synced with Eric
-
+//Synced with Michelle
 //#include "stdafx.h"
 
 GUI::GUI()
