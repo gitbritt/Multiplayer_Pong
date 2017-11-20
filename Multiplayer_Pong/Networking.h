@@ -6,7 +6,7 @@
 class Networking
 {
 public:
-	void Connection_Server(std::string);
+	void Connection_Server();
 	void Connection_Client(std::string);
 	Networking();
 };

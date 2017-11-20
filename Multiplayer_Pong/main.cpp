@@ -19,36 +19,63 @@ Networking::Networking()
 Networking Net;
 sf::CircleShape ball = gui.ball();
 sf::RectangleShape paddle1 = gui.paddle1();
-sf::RectangleShape paddle2 = gui.paddle2();
-sf::RectangleShape local_paddle;
-sf::RectangleShape foreign_paddle;
+sf::RectangleShape paddle2 = gui.paddle2();					
+sf::RectangleShape local_paddle;							//The local paddle that is on the local machine
+sf::RectangleShape foreign_paddle;							//The other paddle that the other user is using
 float change_direction_x = 0.5, change_direction_y = 0.5;
-void GUI_Display(int player_number);
+void GUI_Display(int player_number);						//Declares function
+//THese next few are for sending Data over a network
+sf::Packet paddle_coordinates;
+sf::Packet player_number_packet;
+sf::TcpSocket socket;
+sf::TcpListener listen;
 
-//Call GUI Function to display ball and paddles
+
 int main()
 {
-	int player_number;
-	std::string join_start;
-	std::string IP_address;
-	std::cout << "Do you want to join or start a game. Type join or start : ";
-	std::cin >> join_start;
-	std::cout << "\n ServerIp address you want to connect to = ";
-	std::cin >> IP_address;
-	
-	if (join_start == "join")
-	{
-		Net.Connection_Client(IP_address);	//Client is connecting to a game
-	}
-	else if (join_start == "start")
-	{
-		Net.Connection_Server(IP_address);	//You are hosting a game
-	}
+	//int a, b;
+	//a = 7, b = 3;
+	//coordinates >> a >> b;
+	//int player_number;
+	//std::string local, foreign;
+	//std::string join_start;
+	//sf::IpAddress ip;
+	Net.Connection_Server();
 
-	std::cout << "Pick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
-	std::cin >> player_number;
+	//std::cout << "Server or Client. put c or s : ";
+	//std::cin >> join_start;
+	//if (join_start == "s")
+	//{
+	//	ip = sf::IpAddress::getLocalAddress();
+	//	std::cout << "Waiting . . . . ";
+	//	listen.listen(2000);							//The port we are using is port 2000. This listens for client connections trying to use that port
+	//	listen.accept(socket);
+	//}
+	//else if (join_start == "c")
+	//{
+	//	std::cout << "IP you want to connect to : ";
+	//	std::cin >> ip;
+	//	socket.connect(ip, 2000);
+
+	//}
+	//else
+	//{
+	//	std::cout << "Not valid\n";
+	//	main();
+	//}
+	//std::string testing;
 	
-	GUI_Display(player_number);
+	//std::cout << "\n\nPick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
+	//	std::cin >> player_number;
+	//	player_number_packet << player_number;
+	//	socket.send(player_number_packet);
+		
+	//	socket.receive(player_number_packet);
+	//	player_number_packet >> player_number;
+		
+	//	std::cout << "The other player is : " << player_number << "\n";
+	//GUI_Display(player_number);
+	system("pause");
 	return 0;
 }
 
@@ -83,19 +110,37 @@ void GUI_Display(int player_number)
 	Score2.setString(std::to_string(Score2_num));									//Displays Score for player 2
 	while (window.isOpen())
 	{
+		
+		
 		std::tie(change_direction_x, change_direction_y) = gui.ball_direction(ball, local_paddle, change_direction_x, change_direction_y);
 		ball = gui.ball_moving(ball, local_paddle, change_direction_x, change_direction_y);				//This function lets the ball move around
 		sf::Event event;
 		while (window.pollEvent(event))
 		{	
+
+			//foreign_paddle = gui.paddle_moving_forign(x, y, foreign_paddle);
+
+			
+
 			if (event.type == sf::Event::MouseMoved)								//This gets the x and y cordinates of the mouse to move the paddle
 			{
 				local_paddle = gui.paddle_moving_local(local_paddle, event);
+				float y = local_paddle.getPosition().y;
+				paddle_coordinates << y;
+				socket.send(paddle_coordinates);
+				socket.receive(paddle_coordinates);
+				paddle_coordinates >> y;
+				std::cout << "Y for other player paddle : " << y << "\n";
+				foreign_paddle = gui.paddle_moving_forign(y, foreign_paddle);
+				//std::cout << "Y for other players : "<< foreign_paddle.getPosition().y << "\n";
 			}						//This allows the local paddl to move
 			if (event.type == sf::Event::Closed)
 				window.close();
+			
 		}
 
+
+		
 		window.clear();
 		window.draw(ball);
 		window.draw(local_paddle);

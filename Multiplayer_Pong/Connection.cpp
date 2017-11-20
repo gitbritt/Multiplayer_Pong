@@ -6,57 +6,55 @@
 #include <SFML/Network.hpp>
 
 //This file manages the connection between the Client and the Server
-void Networking::Connection_Server(std::string IP_address)
+void Networking::Connection_Server()	//For now this is for pratice for just trying to understand things.
 {
+	//I got these pieces of code from a youtube video series from  https://www.youtube.com/user/CodingMadeEasy
 	sf::IpAddress ip = sf::IpAddress::getLocalAddress();
 	sf::TcpSocket socket;
-	char connectiontype, mode;
+	char connectionType, mode;
 	char buffer[2000];
-	size_t received;
-	std::cout << "s for server, c for client" << "\n";
-	std::cin >> connectiontype;
+	std::size_t recieved;
 	std::string text = "connected to ";
-	if (connectiontype == 's') {
+
+	std::cout << "Enter S for server. Enter C " << "\n";
+	std::cin >> connectionType;
+	if (connectionType == 's')
+	{
 		sf::TcpListener listener;
-		listener.listen(3000);
+		listener.listen(2000);
 		listener.accept(socket);
-		text += "server";
+		text += " : Server ";
 		mode = 's';
 	}
-	else if (connectiontype == 'c') {
-		socket.connect(ip, 3000);
-		text += "client";
+	else if (connectionType == 'c')
+	{
+		socket.connect(ip, 2000);
+		text += " Client";
 		mode = 'r';
 	}
 	socket.send(text.c_str(), text.length() + 1);
-	socket.receive(buffer, sizeof(buffer), received);
+	socket.receive(buffer, sizeof(buffer), recieved);
 	std::cout << buffer << "\n";
 
 	bool done = false;
 
-	while (!done) {
-		if (mode == 's') {
+	while (!done)
+	{
+		if (mode == 's')
+		{
 			std::getline(std::cin, text);
 			socket.send(text.c_str(), text.length() + 1);
 			mode = 'r';
 		}
-		else if (mode == 'r') {
-			socket.receive(buffer, sizeof(buffer), received);
-			if (received>0) {
-				std::cout << "received: " << buffer << "\n";
+		else if (mode == 'r')
+		{
+			socket.receive(buffer, sizeof(buffer), recieved);
+			if (recieved > 0)
+			{
+				std::cout << "Recieved: " << buffer << "\n";
 				mode = 's';
 			}
 		}
 	}
 }
 
-void Networking::Connection_Client(std::string IP_address)
-{
-	sf::UdpSocket socket;
-
-	// bind the socket to a port
-	if (socket.bind(54000) != sf::Socket::Done)
-	{
-		// error...
-	}
-}

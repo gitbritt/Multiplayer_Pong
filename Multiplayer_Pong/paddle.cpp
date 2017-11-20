@@ -30,3 +30,10 @@ sf::RectangleShape GUI::paddle_moving_local(sf::RectangleShape local_paddle, sf:
 	local_paddle.setPosition(local_paddle.getPosition().x, y - 100);
 	return local_paddle;
 }
+
+sf::RectangleShape GUI::paddle_moving_forign(float y, sf::RectangleShape forign_paddle)
+{
+	
+	forign_paddle.setPosition(forign_paddle.getPosition().x, y);
+	return forign_paddle;
+}
