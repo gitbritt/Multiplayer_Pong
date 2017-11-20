@@ -16,6 +16,9 @@
     <Filter Include="Source Files\GUI_Stuff">
       <UniqueIdentifier>{256b9d0f-73c0-407b-b1ea-2421b58af4aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Networking">
+      <UniqueIdentifier>{0eff6499-882c-4bf7-961c-a31e6fc86093}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
