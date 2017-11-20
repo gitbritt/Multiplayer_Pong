@@ -28,6 +28,8 @@ void Networking::Connection_Server()	//For now this is for pratice for just tryi
 	}
 	else if (connectionType == 'c')
 	{
+		std::cout << "Connect to IP : ";
+		std::cin >> ip;
 		socket.connect(ip, 2000);
 		text += " Client";
 		mode = 'r';
