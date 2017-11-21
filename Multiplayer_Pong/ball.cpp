@@ -32,7 +32,7 @@ sf::CircleShape GUI::ball_moving(sf::CircleShape ball, sf::RectangleShape local_
 	}
 	//float local_paddle_x = local_paddle.getPosition().x;
 	//float local_paddle_y = local_paddle.getPosition().y;
-	ball.setPosition(ball_x - change_direction_x, ball_y - change_direction_y);
+	ball.setPosition(ball_x - change_direction_x, ball_y - change_direction_y);	
 	return ball;
 }
 
