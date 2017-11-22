@@ -17,7 +17,7 @@
       <UniqueIdentifier>{256b9d0f-73c0-407b-b1ea-2421b58af4aa}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Networking">
-      <UniqueIdentifier>{0eff6499-882c-4bf7-961c-a31e6fc86093}</UniqueIdentifier>
+      <UniqueIdentifier>{50155cda-7ab0-4760-b27b-ffb1c0feb64a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -33,9 +33,15 @@
     <ClCompile Include="score.cpp">
       <Filter>Source Files\GUI_Stuff</Filter>
     </ClCompile>
+    <ClCompile Include="Connection.cpp">
+      <Filter>Source Files\Networking</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Networking.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
