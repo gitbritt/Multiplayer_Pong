@@ -2,15 +2,9 @@
 #include <iostream>
 #include "GUI.h"
 #include <tuple>
-//<<<<<<< HEAD
-//Synced with Eric Claus
-//Synced with Michelle Amos
-//Dillon showing Eric and Michelle how git works. basics
-//=======
 #include <SFML/Network.hpp>
 #include "Networking.h"
 
-//>>>>>>> Networking
 //#include "stdafx.h"
 
 GUI::GUI(){}				//Init GUI class
@@ -37,7 +31,7 @@ char buffer[128];
 
 int main()
 {
-	
+	//
 	int player_number;
 	sf::IpAddress ip;
 

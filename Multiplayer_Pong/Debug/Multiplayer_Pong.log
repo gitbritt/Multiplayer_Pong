@@ -1,3 +1,3 @@
-﻿main.obj : error LNK2019: unresolved external symbol "public: class sf::CircleShape __thiscall GUI::ball_moving(class sf::CircleShape,class sf::RectangleShape,class sf::RectangleShape,float,float)" (?ball_moving@GUI@@QAE?AVCircleShape@sf@@V23@VRectangleShape@3@1MM@Z) referenced in function "void __cdecl GUI_Display(int)" (?GUI_Display@@YAXH@Z)
-main.obj : error LNK2019: unresolved external symbol "public: class std::tuple<float,float> __thiscall GUI::ball_direction(class sf::CircleShape,class sf::RectangleShape,class sf::RectangleShape,float,float,char)" (?ball_direction@GUI@@QAE?AV?$tuple@MM@std@@VCircleShape@sf@@VRectangleShape@5@1MMD@Z) referenced in function "void __cdecl GUI_Display(int)" (?GUI_Display@@YAXH@Z)
-C:\Users\DillonBritt\source\repos\Multiplayer_Pong\Debug\Multiplayer_Pong.exe : fatal error LNK1120: 2 unresolved externals
+﻿  main.cpp
+  LINK : C:\Users\DillonBritt\source\repos\Multiplayer_Pong\Debug\Multiplayer_Pong.exe not found or not built by the last incremental link; performing full link
+  Multiplayer_Pong.vcxproj -> C:\Users\DillonBritt\source\repos\Multiplayer_Pong\Debug\Multiplayer_Pong.exe
