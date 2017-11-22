@@ -80,11 +80,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\SFML(32)\lib</AdditionalLibraryDirectories>
-<<<<<<< HEAD
-      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;freetype.lib;jpeg.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-=======
       <AdditionalDependencies>sfml-main-d.lib;sfml-network.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
->>>>>>> Networking
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

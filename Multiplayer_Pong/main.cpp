@@ -2,15 +2,15 @@
 #include <iostream>
 #include "GUI.h"
 #include <tuple>
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //Synced with Eric Claus
 //Synced with Michelle Amos
 //Dillon showing Eric and Michelle how git works. basics
-=======
+//=======
 #include <SFML/Network.hpp>
 #include "Networking.h"
 
->>>>>>> Networking
+//>>>>>>> Networking
 //#include "stdafx.h"
 
 GUI::GUI(){}				//Init GUI class
