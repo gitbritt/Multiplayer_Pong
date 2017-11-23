@@ -14,6 +14,7 @@ class GUI
 		sf::RectangleShape paddle_moving_local(sf::RectangleShape local_paddle, sf::Event event);
 		sf::CircleShape ball_moving(sf::CircleShape ball, sf::RectangleShape local_paddle, float, float );
 		std::tuple<float, float> ball_direction(sf::CircleShape ball, sf::RectangleShape local_paddle, float, float);
+		//std::tuple<float, float> update_scores(sf::CircleShape ball, int, int);
 		GUI();
 		
 };

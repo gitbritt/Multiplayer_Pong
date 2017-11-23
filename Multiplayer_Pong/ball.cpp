@@ -9,7 +9,7 @@ sf::CircleShape GUI::ball()
 {
 	
 	sf::CircleShape ball(15.f);
-	ball.setFillColor(sf::Color::White);
+	ball.setFillColor(sf::Color::Green);
 	ball.setPosition(500, 300);
 
 	return ball;
@@ -24,11 +24,13 @@ sf::CircleShape GUI::ball_moving(sf::CircleShape ball, sf::RectangleShape local_
 	{
 		ball_x = 500;
 		ball_y = 300;
+		//change_direction_x = change_direction_x * -1;
 	}
 	if (ball_x >= 1000)
 	{
 		ball_x = 500;
 		ball_y = 300;
+		//change_direction_x = change_direction_x * -1;
 	}
 	//float local_paddle_x = local_paddle.getPosition().x;
 	//float local_paddle_y = local_paddle.getPosition().y;
@@ -51,6 +53,14 @@ std::tuple<float, float> GUI::ball_direction(sf::CircleShape ball, sf::Rectangle
 	{
 		std::cout << "Hit edge. Change direction" << "\n";
 		change_direction_y = change_direction_y * -1;
+	}
+	if (ball_x <= 0)
+	{
+		change_direction_x = change_direction_x * -1;
+	}
+	if (ball_x >= 1000)
+	{
+		change_direction_x = change_direction_x * -1;
 	}
 	return std::make_tuple(change_direction_x, change_direction_y);
 }
