@@ -25,7 +25,7 @@ int main()
 {
 	int player_number;
 	std::string this_machine_IP_address;
-	std::cout << "Pick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
+	std::cout << "Pick player 1 or 2. 1 is on the left and 2 is on the right : ";
 	std::cin >> player_number;
 
 	std::cout << "Please enter your IP address : ";
