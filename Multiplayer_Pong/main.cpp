@@ -27,7 +27,6 @@ sf::Text Score1;
 sf::Text Score2;
 sf::Font font;
 
-
 //Call GUI Function to display ball and paddles
 int main()
 {
@@ -53,6 +52,9 @@ void GUI_Display(int player_number)
 	sf::RectangleShape local_paddle;
 	sf::RectangleShape foreign_paddle;
 
+	// Configure and initialize the scores
+	gui.initialize_scores(Score1, Score2, font);
+
 	if (player_number == 1)
 	{
 		local_paddle = paddle1;
@@ -63,9 +65,6 @@ void GUI_Display(int player_number)
 		local_paddle = paddle2;
 		foreign_paddle = paddle1;
 	}
-
-	// Configure and initialize the scores
-	gui.initialize_scores(Score1, Score2, font);
 
 	while (window.isOpen())
 	{	

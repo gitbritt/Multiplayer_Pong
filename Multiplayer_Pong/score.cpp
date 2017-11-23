@@ -3,15 +3,10 @@
 #include "GUI.h"
 #include <tuple>
 
-
 void GUI::initialize_scores(sf::Text &Score1, sf::Text &Score2, sf::Font &font)
 {
 	// Set initial scores at 0
 	int Score1_num = 0, Score2_num = 0;
-
-	//sf::Text Score1;
-	//sf::Text Score2;
-	//sf::Font font;
 
 	font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 	Score1.setFont(font);
@@ -20,17 +15,10 @@ void GUI::initialize_scores(sf::Text &Score1, sf::Text &Score2, sf::Font &font)
 	Score2.setPosition(200, 550);													//Player 2 score on the right
 	Score1.setString(std::to_string(Score1_num));									//Displays Score for player 1
 	Score2.setString(std::to_string(Score2_num));									//Displays Score for player 2
-
-	//return std::make_tuple(Score, j);
 }
-
-
-
 
 void GUI::update_scores(sf::CircleShape ball, sf::Text &Score1, sf::Text &Score2, int &Score1_num, int &Score2_num)
 {
-	//std::tie(Score1, Score2) = gui.initialize_scores(Score1_num, Score2_num);
-
 	// If the ball hits the left side of the window (getting past player 1's paddle)
 	if (ball.getPosition().x == 1000)
 	{
@@ -54,7 +42,5 @@ void GUI::update_scores(sf::CircleShape ball, sf::Text &Score1, sf::Text &Score2
 		Score1.setFillColor(sf::Color::Green);
 		Score2.setFillColor(sf::Color::White);
 	}
-
-	//return std::make_tuple(Score1, Score2, Score1_num, Score2_num);
 }
 
