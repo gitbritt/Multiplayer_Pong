@@ -38,7 +38,6 @@ int main()
 	std::cout << "Please enter your IP address : ";
 	std::cin >> this_machine_IP_address;
 
-
 	GUI_Display(player_number);
 	return 0;
 }
