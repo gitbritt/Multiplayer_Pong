@@ -97,16 +97,8 @@ void GUI_Display(int player_number)
 		local_paddle = paddle2;
 		foreign_paddle = paddle1;
 	}
-	sf::Text Score1;
-	sf::Text Score2;
-	sf::Font font;
-	font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
-	Score1.setFont(font);
-	Score2.setFont(font);
-	Score1.setPosition(800, 550);													//Player 1 score on the left
-	Score2.setPosition(200, 550);													//Player 2 score on the right
-	Score1.setString(std::to_string(Score1_num));									//Displays Score for player 1
-	Score2.setString(std::to_string(Score2_num));									//Displays Score for player 2
+
+	
 	bool update = false;
 	socket.setBlocking(false);
 	int i = 0;
@@ -173,8 +165,6 @@ void GUI_Display(int player_number)
 		window.draw(ball);
 		window.draw(local_paddle);
 		window.draw(foreign_paddle);
-		window.draw(Score1);
-		window.draw(Score2);
 		window.display();
 	}
 
