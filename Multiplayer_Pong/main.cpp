@@ -4,7 +4,9 @@
 #include <tuple>
 #include <SFML/Network.hpp>
 #include "Networking.h"
-
+#include <vector>
+#include <stdlib.h>
+#include <math.h>
 //#include "stdafx.h"
 
 GUI::GUI(){}				//Init GUI class
@@ -78,7 +80,9 @@ int main()
 void GUI_Display(int player_number)
 {
 	int Score1_num = 0, Score2_num = 0;
-	sf::RenderWindow window(sf::VideoMode(1000, 600), "Multiplayer Pong : " + join_start);		//Sets the window size
+	std::string title = "Multiplayer Pong : ";
+	title = title += join_start;
+	sf::RenderWindow window(sf::VideoMode(1000, 600), title);		//Sets the window size
 	sf::RectangleShape local_paddle;											//
 	sf::RectangleShape foreign_paddle;											//
 	sf::Vector2f prevPosition_paddle, p2Position_paddle;
@@ -105,10 +109,11 @@ void GUI_Display(int player_number)
 	Score2.setString(std::to_string(Score2_num));									//Displays Score for player 2
 	bool update = false;
 	socket.setBlocking(false);
+	int i = 0;
 	while (window.isOpen())
 	{
-		int i = 0;
-		i++;
+		
+		
 		std::tie(change_direction_x, change_direction_y) = gui.ball_direction(ball, local_paddle, foreign_paddle,  change_direction_x, change_direction_y, join_start);
 		ball = gui.ball_moving(ball, local_paddle, foreign_paddle, change_direction_x, change_direction_y);				//This function lets the ball move around
 		
@@ -143,19 +148,26 @@ void GUI_Display(int player_number)
 		paddle_coordinates.endOfPacket();
 		//}
 		//std::cout << p2Position_paddle.y << "\n";
-
+		i++;
 		if (join_start == 's')
 		{
+			//std::cout << "Cycle number : " << i << ", Sent coordiantes : " << ball.getPosition().x << ", " << ball.getPosition().y << "\n";
 			ball_coordinates << ball.getPosition().x << ball.getPosition().y;
 			socket2.send(ball_coordinates);
 		}
-		else
+		prevPosition_ball = ball.getPosition();
+		if(join_start =='c')
 		{
+			
 			socket2.receive(ball_coordinates);
 			ball_coordinates >> p2Position_ball.x >> p2Position_ball.y;
-			std::cout << "Recieved x coordinates from server : " << p2Position_ball.x << "\n";
+			//if (prevPosition_ball != ball.getPosition())
+			{
+				ball.setPosition(p2Position_ball);
+				//std::cout << "Cycle number : " << i << ", Sent coordiantes : " << p2Position_ball.x << ", " << p2Position_ball.y << "\n";
+			}
 		}
-		ball_coordinates.endOfPacket();
+		ball_coordinates.clear();
 
 		window.clear();
 		window.draw(ball);

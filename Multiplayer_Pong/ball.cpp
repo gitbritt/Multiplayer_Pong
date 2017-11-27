@@ -54,18 +54,18 @@ std::tuple<float, float> GUI::ball_direction(sf::CircleShape ball, sf::Rectangle
 
 	if ((local_paddle_y - 27.5 <= ball_y) && (local_paddle_y + 200 + 4.5 >= ball_y) && (local_paddle_x == ball_x + 0))
 	{
-		std::cout << "Hits local paddle. Changed Direction " << "\n";
+		//std::cout << "Hits local paddle. Changed Direction " << "\n";
 		change_direction_x = change_direction_x * -1;
 	}
 	if ((foreign_paddle_y - 27.5 <= ball_y) && (foreign_paddle_y + 200 + 4.5 >= ball_y) && (foreign_paddle_x - 0 == ball_x - 0))
 	{
-		std::cout << "Hits local paddle. Changed Direction " << "\n";//
-		std::cout << "Ball Location x : " << ball.getPosition().x << " , Paddle location : " << foreign_paddle.getPosition().x << "\n";
+		//std::cout << "Hits local paddle. Changed Direction " << "\n";//
+		//std::cout << "Ball Location x : " << ball.getPosition().x << " , Paddle location : " << foreign_paddle.getPosition().x << "\n";
 		change_direction_x = change_direction_x * -1;
 	}
 	if ((ball_y <= 0) || (ball_y >= 600 - 30))
 	{
-		std::cout << "Hit edge. Change direction" << "\n";
+		//std::cout << "Hit edge. Change direction" << "\n";
 		change_direction_y = change_direction_y * -1;
 	}
 	return std::make_tuple(change_direction_x, change_direction_y);
