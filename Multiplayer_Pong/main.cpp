@@ -87,6 +87,10 @@ void GUI_Display(int player_number)
 	sf::RectangleShape foreign_paddle;											//
 	sf::Vector2f prevPosition_paddle, p2Position_paddle;
 	sf::Vector2f prevPosition_ball, p2Position_ball;
+	sf::Text Score1, Score2;
+	sf::Font font;
+	//Init score
+	gui.initialize_scores(Score1, Score2, font);
 	if (player_number == 1)
 	{
 		local_paddle = paddle1;
