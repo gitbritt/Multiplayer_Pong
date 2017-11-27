@@ -163,9 +163,13 @@ void GUI_Display(int player_number)
 				//std::cout << "Cycle number : " << i << ", Sent coordiantes : " << p2Position_ball.x << ", " << p2Position_ball.y << "\n";
 			}
 		}
+		gui.update_scores(ball, Score1, Score2, Score1_num, Score2_num);
+
 		ball_coordinates.clear();
 
 		window.clear();
+		window.draw(Score1);
+		window.draw(Score2);
 		window.draw(ball);
 		window.draw(local_paddle);
 		window.draw(foreign_paddle);
