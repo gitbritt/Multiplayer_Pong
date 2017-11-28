@@ -65,13 +65,14 @@ int main()
 	
 	std::cout << "\n\nPick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
 		std::cin >> player_number;
-		player_number_packet << player_number;
+		int number_sent = player_number;
+		player_number_packet << number_sent;
 		socket.send(player_number_packet);
 		
 		socket.receive(player_number_packet);
-		player_number_packet >> player_number;
+		player_number_packet >> number_sent;
 		
-		std::cout << "The other player is : " << player_number << "\n";
+		std::cout << "The other player is : " << number_sent << "\n";
 	GUI_Display(player_number);
 	system("pause");
 	return 0;
@@ -82,6 +83,8 @@ void GUI_Display(int player_number)
 	int Score1_num = 0, Score2_num = 0;
 	std::string title = "Multiplayer Pong : ";
 	title = title += join_start;
+	title = title += " Planer num : ";
+	title = title += std::to_string(player_number);
 	sf::RenderWindow window(sf::VideoMode(1000, 600), title);		//Sets the window size
 	sf::RectangleShape local_paddle;											//
 	sf::RectangleShape foreign_paddle;											//
@@ -90,7 +93,7 @@ void GUI_Display(int player_number)
 	sf::Text Score1, Score2;
 	sf::Font font;
 	//Init score
-	gui.initialize_scores(Score1, Score2, font);
+	gui.initialize_scores(Score1, Score2, font, player_number);
 	if (player_number == 1)
 	{
 		local_paddle = paddle1;
@@ -163,11 +166,17 @@ void GUI_Display(int player_number)
 				//std::cout << "Cycle number : " << i << ", Sent coordiantes : " << p2Position_ball.x << ", " << p2Position_ball.y << "\n";
 			}
 		}
-		gui.update_scores(ball, Score1, Score2, Score1_num, Score2_num);
+		sf::Vertex line[] =
+		{
+			sf::Vertex(sf::Vector2f(500, 0)),
+			sf::Vertex(sf::Vector2f(500, 600))
+		};
+
+		gui.update_scores(ball, Score1, Score2, Score1_num, Score2_num, player_number);
 
 		ball_coordinates.clear();
-
 		window.clear();
+		window.draw(line, 2, sf::Lines);
 		window.draw(Score1);
 		window.draw(Score2);
 		window.draw(ball);
