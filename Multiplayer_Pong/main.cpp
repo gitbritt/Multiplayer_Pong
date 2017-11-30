@@ -18,7 +18,7 @@ sf::RectangleShape paddle1 = gui.paddle1();					//Defines the paddle 1
 sf::RectangleShape paddle2 = gui.paddle2();					//Defines the paddle 2
 sf::RectangleShape local_paddle;							//The local paddle that is on the local machine
 sf::RectangleShape foreign_paddle;							//The other paddle that the other user is using
-float change_direction_x = 0.5, change_direction_y = 0.5;	//This is the speed at which the ball moves
+float change_direction_x = 1, change_direction_y = 1;	//This is the speed at which the ball moves
 void GUI_Display(int player_number);						//Declares function
 char join_start;
 
@@ -29,6 +29,7 @@ sf::Packet ball_coordinates;
 sf::TcpSocket socket, socket2;										//Defiens the socket
 sf::TcpListener listen, listen2;										//Defines the listener
 char buffer[128];
+sf::SocketSelector selector;
 
 
 int main()
@@ -61,7 +62,6 @@ int main()
 		std::cout << "Not valid\n";
 		main();
 	}
-	std::string testing;
 	
 	std::cout << "\n\nPick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
 		std::cin >> player_number;
@@ -108,6 +108,7 @@ void GUI_Display(int player_number)
 	
 	bool update = false;
 	socket.setBlocking(false);
+	//socket2.setBlocking(true);
 	int i = 0;
 	while (window.isOpen())
 	{
@@ -127,8 +128,7 @@ void GUI_Display(int player_number)
 				update = false;
 		}
 		prevPosition_paddle = local_paddle.getPosition();
-		//if (update)
-		//{
+
 		if (event.type == sf::Event::MouseMoved)								//This gets the x and y cordinates of the mouse to move the paddle
 		{
 			local_paddle = gui.paddle_moving_local(local_paddle, event);		//This allows the local paddl to move
@@ -145,25 +145,26 @@ void GUI_Display(int player_number)
 			foreign_paddle.setPosition(p2Position_paddle);
 		}
 		paddle_coordinates.endOfPacket();
-		//}
-		//std::cout << p2Position_paddle.y << "\n";
-		i++;
+
+		selector.add(socket2);
 		if (join_start == 's')
-		{
-			//std::cout << "Cycle number : " << i << ", Sent coordiantes : " << ball.getPosition().x << ", " << ball.getPosition().y << "\n";
-			ball_coordinates << ball.getPosition().x << ball.getPosition().y;
-			socket2.send(ball_coordinates);
+		{	
+				ball_coordinates << ball.getPosition().x << ball.getPosition().y;
+				if (socket2.send(ball_coordinates) != sf::Socket::Done)
+					std::cout << "Error sending\n";	
 		}
 		prevPosition_ball = ball.getPosition();
 		if(join_start =='c')
 		{
-			
-			socket2.receive(ball_coordinates);
-			ball_coordinates >> p2Position_ball.x >> p2Position_ball.y;
-			//if (prevPosition_ball != ball.getPosition())
+			if (selector.wait(sf::seconds(10)))
 			{
-				ball.setPosition(p2Position_ball);
-				//std::cout << "Cycle number : " << i << ", Sent coordiantes : " << p2Position_ball.x << ", " << p2Position_ball.y << "\n";
+
+				if (socket2.receive(ball_coordinates) != sf::Socket::Done)
+					std::cout << "Error Recieving\n";
+				ball_coordinates >> p2Position_ball.x >> p2Position_ball.y;
+				{
+					ball.setPosition(p2Position_ball);
+				}
 			}
 		}
 		sf::Vertex line[] =

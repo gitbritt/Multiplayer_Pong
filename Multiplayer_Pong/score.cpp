@@ -40,7 +40,6 @@ void GUI::update_scores(sf::CircleShape ball, sf::Text &Score1, sf::Text &Score2
 		std::string player_str = "Player 2 : ";
 		// Increment player 1's score and set the Score1 str variable to the updated score
 		Score1_num++;
-
 		Score1.setString(player_str += std::to_string(Score1_num));
 
 		// Make the updated score display green
