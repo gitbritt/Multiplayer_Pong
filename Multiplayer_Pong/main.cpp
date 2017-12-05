@@ -12,13 +12,13 @@
 GUI::GUI(){}				//Init GUI class
 GUI gui;
 Networking::Networking(){}									//Init Networking Class, but this is only used for testing purposes
-Networking Net;
+Networking Net;												//
 sf::CircleShape ball = gui.ball();							//Defines the ball object
 sf::RectangleShape paddle1 = gui.paddle1();					//Defines the paddle 1
 sf::RectangleShape paddle2 = gui.paddle2();					//Defines the paddle 2
 sf::RectangleShape local_paddle;							//The local paddle that is on the local machine
 sf::RectangleShape foreign_paddle;							//The other paddle that the other user is using
-float change_direction_x = 1, change_direction_y = 1;	//This is the speed at which the ball moves
+float change_direction_x = 2, change_direction_y = 2;	//This is the speed at which the ball moves
 void GUI_Display(int player_number);						//Declares function
 char join_start;
 
@@ -86,6 +86,7 @@ void GUI_Display(int player_number)
 	title = title += " Planer num : ";
 	title = title += std::to_string(player_number);
 	sf::RenderWindow window(sf::VideoMode(1000, 600), title);		//Sets the window size
+	window.setFramerateLimit(60);									//Sets Frame Rate to 60
 	sf::RectangleShape local_paddle;											//
 	sf::RectangleShape foreign_paddle;											//
 	sf::Vector2f prevPosition_paddle, p2Position_paddle;
@@ -158,7 +159,7 @@ void GUI_Display(int player_number)
 		{
 			if (selector.wait(sf::seconds(10)))
 			{
-
+		
 				if (socket2.receive(ball_coordinates) != sf::Socket::Done)
 					std::cout << "Error Recieving\n";
 				ball_coordinates >> p2Position_ball.x >> p2Position_ball.y;
@@ -185,5 +186,4 @@ void GUI_Display(int player_number)
 		window.draw(foreign_paddle);
 		window.display();
 	}
-
 }
