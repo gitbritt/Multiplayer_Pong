@@ -43,17 +43,15 @@ std::tuple<float, float> GUI::ball_direction(sf::CircleShape ball, sf::Rectangle
 	float foreign_paddle_x = foreign_paddle.getPosition().x;
 	float ball_x = ball.getPosition().x;
 	float ball_y = ball.getPosition().y;
-	int set_x = 0;
+	float set_x = 0;
 	if (join_start == 's')
-		set_x = 25;
+		set_x = 24;
 
-
-
-	if ((local_paddle_y - 27.5 <= ball_y) && (local_paddle_y + 200 + 4.5 >= ball_y) && (local_paddle_x <= ball_x + set_x))
+	if ((local_paddle_y - 27.5 <= ball_y) && (local_paddle_y + 200 + 4.5 >= ball_y) && (local_paddle_x == ball_x + set_x + 0))
 	{
 		change_direction_x = change_direction_x * -1;
 	}
-	if ((foreign_paddle_y - 27.5 <= ball_y) && (foreign_paddle_y + 200 + 4.5 >= ball_y) && (foreign_paddle_x >= ball_x))
+	if ((foreign_paddle_y - 27.5 <= ball_y) && (foreign_paddle_y + 200 + 4.5 >= ball_y) && (foreign_paddle_x + 2 == ball_x - 0))
 	{
 		change_direction_x = change_direction_x * -1;
 	}
