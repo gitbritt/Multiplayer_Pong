@@ -18,7 +18,7 @@ sf::RectangleShape paddle1 = gui.paddle1();					//Defines the paddle 1
 sf::RectangleShape paddle2 = gui.paddle2();					//Defines the paddle 2
 sf::RectangleShape local_paddle;							//The local paddle that is on the local machine
 sf::RectangleShape foreign_paddle;							//The other paddle that the other user is using
-float change_direction_x = 2, change_direction_y = 2;	//This is the speed at which the ball moves
+float change_direction_x = 4, change_direction_y = 4;	//This is the speed at which the ball moves
 void GUI_Display(int player_number);						//Declares function
 char join_start;
 

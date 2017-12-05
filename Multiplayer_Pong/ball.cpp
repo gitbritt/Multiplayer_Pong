@@ -49,11 +49,11 @@ std::tuple<float, float> GUI::ball_direction(sf::CircleShape ball, sf::Rectangle
 
 
 
-	if ((local_paddle_y - 27.5 <= ball_y) && (local_paddle_y + 200 + 4.5 >= ball_y) && (local_paddle_x == ball_x + set_x))
+	if ((local_paddle_y - 27.5 <= ball_y) && (local_paddle_y + 200 + 4.5 >= ball_y) && (local_paddle_x <= ball_x + set_x))
 	{
 		change_direction_x = change_direction_x * -1;
 	}
-	if ((foreign_paddle_y - 27.5 <= ball_y) && (foreign_paddle_y + 200 + 4.5 >= ball_y) && (foreign_paddle_x == ball_x))
+	if ((foreign_paddle_y - 27.5 <= ball_y) && (foreign_paddle_y + 200 + 4.5 >= ball_y) && (foreign_paddle_x >= ball_x))
 	{
 		change_direction_x = change_direction_x * -1;
 	}
