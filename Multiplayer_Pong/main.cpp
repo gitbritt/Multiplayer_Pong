@@ -7,6 +7,8 @@
 #include <vector>
 #include <stdlib.h>
 #include <math.h>
+#include <thread>         // std::this_thread::sleep_for
+#include <chrono> 
 //#include "stdafx.h"
 
 GUI::GUI(){}				//Init GUI class
@@ -18,7 +20,7 @@ sf::RectangleShape paddle1 = gui.paddle1();					//Defines the paddle 1
 sf::RectangleShape paddle2 = gui.paddle2();					//Defines the paddle 2
 sf::RectangleShape local_paddle;							//The local paddle that is on the local machine
 sf::RectangleShape foreign_paddle;							//The other paddle that the other user is using
-float change_direction_x = -4, change_direction_y = -4;	//This is the speed at which the ball moves
+float change_direction_x = -4.0, change_direction_y = -4.0;	//This is the speed at which the ball moves
 void GUI_Display(int player_number);						//Declares function
 char join_start;
 
@@ -26,7 +28,7 @@ char join_start;
 sf::Packet paddle_coordinates;								//Packet will send x,y coordines for the paddle
 sf::Packet player_number_packet;							//Packet to see which person is p1 and p2
 sf::Packet ball_coordinates;
-sf::TcpSocket socket, socket2;										//Defiens the socket
+sf::TcpSocket socket , socket2;										//Defiens the socket
 sf::TcpListener listen, listen2;										//Defines the listener
 char buffer[128];
 sf::SocketSelector selector;
@@ -95,6 +97,7 @@ void GUI_Display(int player_number)
 	sf::Font font;
 	//Init score
 	gui.initialize_scores(Score1, Score2, font, player_number);
+	
 	if (player_number == 1)
 	{
 		local_paddle = paddle1;
@@ -113,14 +116,12 @@ void GUI_Display(int player_number)
 	int i = 0;
 	while (window.isOpen())
 	{
-		
-		
-		std::tie(change_direction_x, change_direction_y) = gui.ball_direction(ball, local_paddle, foreign_paddle,  change_direction_x, change_direction_y, join_start);
+		std::tie(change_direction_x, change_direction_y) = gui.ball_direction(ball, local_paddle, foreign_paddle, change_direction_x, change_direction_y, join_start);
 		ball = gui.ball_moving(ball, local_paddle, foreign_paddle, change_direction_x, change_direction_y);				//This function lets the ball move around
-		
+
 		sf::Event event;
 		while (window.pollEvent(event))
-		{	
+		{
 			if (event.type == sf::Event::Closed)
 				window.close();
 			else if (event.type == sf::Event::GainedFocus)
@@ -148,26 +149,26 @@ void GUI_Display(int player_number)
 		paddle_coordinates.clear();
 
 		selector.add(socket2);
-		if (join_start == 's')
-		{	
-				ball_coordinates << ball.getPosition().x << ball.getPosition().y;
-				if (socket2.send(ball_coordinates) != sf::Socket::Done)
-					std::cout << "Error sending\n";	
-		}
-		prevPosition_ball = ball.getPosition();
-		if(join_start =='c')
+
+		if (join_start == 'c')
 		{
-			if (selector.wait(sf::seconds(10)))
+			if (socket2.receive(ball_coordinates) != sf::Socket::Done)
+				std::cout << "Error Recieving\n";
+			ball_coordinates >> p2Position_ball.x >> p2Position_ball.y;
 			{
-		
-				if (socket2.receive(ball_coordinates) != sf::Socket::Done)
-					std::cout << "Error Recieving\n";
-				ball_coordinates >> p2Position_ball.x >> p2Position_ball.y;
-				{
-					ball.setPosition(p2Position_ball);
-				}
+				ball.setPosition(p2Position_ball);
 			}
 		}
+
+		if (join_start == 's')
+		{
+				ball_coordinates << ball.getPosition().x << ball.getPosition().y;
+				if (socket2.send(ball_coordinates) != sf::Socket::Done)
+					std::cout << "Error sending\n";
+				
+		}
+		
+
 		sf::Vertex line[] =
 		{
 			sf::Vertex(sf::Vector2f(500, 0)),
