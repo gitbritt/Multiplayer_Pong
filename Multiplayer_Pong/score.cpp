@@ -8,7 +8,7 @@ void GUI::initialize_scores(sf::Text &Score1, sf::Text &Score2, sf::Font &font, 
 	// Set initial scores at 0
 	int Score1_num = 0, Score2_num = 0;
 	std::string player_str = "Player ";
-	player_str = player_str += std::to_string(player_number);
+	//player_str = player_str += std::to_string(player_number);
 	player_str = player_str += " : ";
 	font.loadFromFile("C:/Windows/Fonts/Arial.ttf");
 	Score1.setFont(font);
@@ -25,7 +25,7 @@ void GUI::update_scores(sf::CircleShape ball, sf::Text &Score1, sf::Text &Score2
 	// If the ball hits the left side of the window (getting past player 1's paddle)
 	if (ball.getPosition().x == 1000)
 	{
-		std::string player_str = "Player 1 : ";
+		std::string player_str = "Player : ";
 		// Increment player 2's score and set the Score2 str variable to the updated score
 		Score2_num++;
 		Score2.setString(player_str += std::to_string(Score2_num));
@@ -37,7 +37,7 @@ void GUI::update_scores(sf::CircleShape ball, sf::Text &Score1, sf::Text &Score2
 	// If the ball hits the right side of the window (getting past player 2's paddle)
 	if (ball.getPosition().x == 0)
 	{
-		std::string player_str = "Player 2 : ";
+		std::string player_str = "Player : ";
 		// Increment player 1's score and set the Score1 str variable to the updated score
 		Score1_num++;
 		Score1.setString(player_str += std::to_string(Score1_num));
