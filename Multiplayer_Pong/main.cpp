@@ -3,6 +3,7 @@
 #include "GUI.h"
 #include <tuple>
 #include <SFML/Network.hpp>
+#include <SFML/Audio.hpp>
 #include "Networking.h"
 #include <vector>
 #include <stdlib.h>
@@ -24,7 +25,7 @@ float change_direction_x = -4.0, change_direction_y = -4.0;	//This is the speed 
 void GUI_Display(int player_number);						//Declares function
 char join_start;
 
-//THese next few are for sending Data over a network
+//These next few are for sending Data over a network
 sf::Packet paddle_coordinates;								//Packet will send x,y coordines for the paddle
 sf::Packet player_number_packet;							//Packet to see which person is p1 and p2
 sf::Packet ball_coordinates;
@@ -65,7 +66,7 @@ int main()
 		main();
 	}
 	
-	std::cout << "\n\nPick plyaer 1 or 2. 1 is on the left and 2 is on the right : ";
+	std::cout << "\n\nPick player 1 or 2. 1 is on the left and 2 is on the right : ";
 		std::cin >> player_number;
 		int number_sent = player_number;
 		player_number_packet << number_sent;
@@ -82,10 +83,19 @@ int main()
 
 void GUI_Display(int player_number)
 {
+	const char server_ = 's';
+	const char client_ = 'c';
 	int Score1_num = 0, Score2_num = 0;
-	std::string title = "Multiplayer Pong : ";
-	title = title += join_start;
-	title = title += " Planer num : ";
+	std::string title = "Multiplayer Pong: ";
+	if (join_start == server_)
+	{
+		title = title+= "server";
+	}
+	if (join_start == client_)
+	{
+		title = title += "client";
+	}
+	title = title += " | Player ";
 	title = title += std::to_string(player_number);
 	sf::RenderWindow window(sf::VideoMode(1000, 600), title);		//Sets the window size
 	window.setFramerateLimit(60);									//Sets Frame Rate to 60
@@ -176,6 +186,18 @@ void GUI_Display(int player_number)
 		};
 
 		gui.update_scores(ball, Score1, Score2, Score1_num, Score2_num, player_number);
+
+		if (Score2_num == 7)
+		{
+			window.close();
+			std::cout << "Player 1 wins!" << std::endl;
+		}
+
+		if (Score1_num == 7)
+		{
+			window.close();
+			std::cout << "Player 2 wins!" << std::endl;
+		}
 
 		ball_coordinates.clear();
 		window.clear();
