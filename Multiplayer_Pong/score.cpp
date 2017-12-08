@@ -35,16 +35,15 @@ void GUI::update_scores(sf::CircleShape ball, sf::Text &Score1, sf::Text &Score2
 	}
 
 	// If the ball hits the right side of the window (getting past player 2's paddle)
-	if (ball.getPosition().x == 0)
+	if (ball.getPosition().x <= -30)
 	{
 		std::string player_str = "Player : ";
-		// Increment player 1's score and set the Score1 str variable to the updated score
+		// Increment player 2's score and set the Score2 str variable to the updated score
 		Score1_num++;
 		Score1.setString(player_str += std::to_string(Score1_num));
-
 		// Make the updated score display green
-		Score1.setFillColor(sf::Color::Green);
-		Score2.setFillColor(sf::Color::White);
+		Score2.setFillColor(sf::Color::Green);
+		Score1.setFillColor(sf::Color::White);
 	}
 }
 
