@@ -42,4 +42,3 @@ void GUI::update_scores(sf::CircleShape ball, sf::Text &Score1, sf::Text &Score2
 		Score2.setFillColor(sf::Color::White);
 	}
 }
-
