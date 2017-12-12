@@ -13,3 +13,10 @@ Setup
 	https://www.kimsgamedev.com/setup-sfml-project-visual-studio-2017/
 	
 	https://www.sfml-dev.org/tutorials/2.4/
+	
+	
+	
+Download the Installer here
+
+https://drive.google.com/open?id=1O24Gf05EXfsKBwlQT3HpqtKpGb7HVi0l
+
