@@ -1,3 +1,5 @@
+//THis is a remake of Atari's game, Pong, which was released in 1972
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "GUI.h"
