@@ -18,5 +18,5 @@ Setup
 	
 Download the Installer here
 
-https://drive.google.com/open?id=1O24Gf05EXfsKBwlQT3HpqtKpGb7HVi0l
+https://drive.google.com/open?id=1x6YV4N5k6WTSzeGssWm0DKSKENwSjpif
 
