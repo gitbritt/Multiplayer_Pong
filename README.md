@@ -30,9 +30,9 @@ Setup
 
 -	Clone This project and the Forked modified SFML into the same directory. 
 	
-	-git clone https://github.com/gitbritt/Multiplayer_Pong
-	
-	-git clone https://github.com/gitbritt/SFML
+		git clone https://github.com/gitbritt/Multiplayer_Pong
+
+		git clone https://github.com/gitbritt/SFML
 	
 	
 Support and Contact
