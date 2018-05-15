@@ -39,7 +39,7 @@ Development
 
 		-	A modified version for this project is here : https://github.com/gitbritt/SFML
 
-	Setup
+-	Setup
 	-----
 	-	Make sure Visual Studio is setup. Requirements for VS : https://goo.gl/vDj8Qm
 
@@ -52,7 +52,7 @@ Development
 	-	Switch VS to 32 bit (x86). All the config is set for the 32 bit(x86)
 
 
-	Support and Contact
+-	Support and Contact
 	-------
 	-	If there is bugs that you come across, please tell me about it in the issues page
 
