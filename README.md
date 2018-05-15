@@ -18,39 +18,47 @@ Game Play Questions
 
 -	Currently it only works for computers on the same local network.
 
-Required tools
---------------
--	Windows Machine
--	Visual Studio (Language is in C++)
+Install and Play game
+---------------------
+Go to Stable Installers and download the MSI or just click here : 
+<a href ="https://github.com/gitbritt/Multiplayer_Pong/raw/master/Stable_Installer_versions/Multiplayer_Pong/Setup%20Files/Multiplayer_Pong.msi">Multiplayer_pong.exe</a>
 
-	-	Screenshots for what Visual Studio needs for modifications. https://goo.gl/vDj8Qm
--	SFML C++ Library. 
-	-	https://github.com/SFML/SFML and https://www.sfml-dev.org/
-	
-	-	This is the GUI library used for C++.
-	
-	-	A modified version for this project is here : https://github.com/gitbritt/SFML
+Development
+-----------
 
-Setup
------
--	Make sure Visual Studio is setup. Requirements for VS : https://goo.gl/vDj8Qm
+	Required tools
+	--------------
+	-	Windows Machine
+	-	Visual Studio (Language is in C++)
 
--	Clone This project and the Forked modified SFML into the same directory. 
-	
-		git clone https://github.com/gitbritt/Multiplayer_Pong
+		-	Screenshots for what Visual Studio needs for modifications. https://goo.gl/vDj8Qm
+	-	SFML C++ Library. 
+		-	https://github.com/SFML/SFML and https://www.sfml-dev.org/
 
-		git clone https://github.com/gitbritt/SFML
+		-	This is the GUI library used for C++.
 
--	Switch VS to 32 bit (x86). All the config is set for the 32 bit(x86)
-	
-	
-Support and Contact
--------
--	If there is bugs that you come across, please tell me about it in the issues page
+		-	A modified version for this project is here : https://github.com/gitbritt/SFML
 
-	https://github.com/gitbritt/Multiplayer_Pong/issues
-	
--	If for some reason the Forked SFML version is not working, visit https://www.sfml-dev.org/ and download it
-	
-	-	Here's a link to the tutorial + info page : https://www.sfml-dev.org/learn.php
-	
+	Setup
+	-----
+	-	Make sure Visual Studio is setup. Requirements for VS : https://goo.gl/vDj8Qm
+
+	-	Clone This project and the Forked modified SFML into the same directory. 
+
+			git clone https://github.com/gitbritt/Multiplayer_Pong
+
+			git clone https://github.com/gitbritt/SFML
+
+	-	Switch VS to 32 bit (x86). All the config is set for the 32 bit(x86)
+
+
+	Support and Contact
+	-------
+	-	If there is bugs that you come across, please tell me about it in the issues page
+
+		https://github.com/gitbritt/Multiplayer_Pong/issues
+
+	-	If for some reason the Forked SFML version is not working, visit https://www.sfml-dev.org/ and download it
+
+		-	Here's a link to the tutorial + info page : https://www.sfml-dev.org/learn.php
+
