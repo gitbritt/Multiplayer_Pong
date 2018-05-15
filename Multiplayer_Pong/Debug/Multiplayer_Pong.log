@@ -1,1 +1,8 @@
-﻿  Multiplayer_Pong.vcxproj -> C:\Users\DillonBritt\Documents\GitHub\Multiplayer_Pong\Debug\Multiplayer_Pong.exe
+﻿  Connection.cpp
+  ball.cpp
+  main.cpp
+  paddle.cpp
+c:\users\dillonbritt\documents\github\multiplayer_pong\multiplayer_pong\paddle.cpp(30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  score.cpp
+  Generating Code...
+  Multiplayer_Pong.vcxproj -> C:\Users\DillonBritt\Documents\GitHub\Multiplayer_Pong\Debug\Multiplayer_Pong.exe
