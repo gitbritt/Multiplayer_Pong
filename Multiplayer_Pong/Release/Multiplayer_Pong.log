@@ -1,4 +1,12 @@
-﻿  Generating code
-  All 174 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+﻿  ball.cpp
+  Connection.cpp
+  main.cpp
+  paddle.cpp
+c:\users\dillonbritt\source\repos\multiplayer_pong\multiplayer_pong\paddle.cpp(30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  score.cpp
+  Generating code
+  0 of 160 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Multiplayer_Pong.vcxproj -> C:\Users\DillonBritt\source\repos\Multiplayer_Pong\Release\Multiplayer_Pong.exe
+  Multiplayer_Pong.vcxproj -> C:\Users\DillonBritt\Source\Repos\Multiplayer_Pong\Release\Multiplayer_Pong.exe
