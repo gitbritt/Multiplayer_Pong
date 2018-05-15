@@ -40,7 +40,7 @@ sf::SocketSelector selector;
 int main()
 {
 	//
-	std::cout << "Test Test Test Test";
+	
 	int player_number;
 	sf::IpAddress ip;
 
