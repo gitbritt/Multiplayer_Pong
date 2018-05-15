@@ -26,7 +26,7 @@ Go to Stable Installers and download the MSI or just click here :
 Development
 -----------
 
-	Required tools
+-	Required tools
 	--------------
 	-	Windows Machine
 	-	Visual Studio (Language is in C++)
