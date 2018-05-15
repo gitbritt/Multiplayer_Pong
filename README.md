@@ -18,7 +18,8 @@ Required tools
 -	Visual Studio (Language is in C++)
 
 	-	Screenshots for what Visual Studio needs for modifications. https://goo.gl/vDj8Qm
--	SFML C++ Library
+-	SFML C++ Library. 
+	-	https://github.com/SFML/SFML and https://www.sfml-dev.org/
 	
 	-	This is the GUI library used for C++.
 	
@@ -43,5 +44,5 @@ Support and Contact
 	
 -	If for some reason the Forked SFML version is not working, visit https://www.sfml-dev.org/ and download it
 	
-	-Here's a link to the tutorial + info page : https://www.sfml-dev.org/learn.php
+	-	Here's a link to the tutorial + info page : https://www.sfml-dev.org/learn.php
 	
