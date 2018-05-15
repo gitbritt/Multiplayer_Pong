@@ -10,7 +10,13 @@ Our idea was to re-creat pong but make it multiplayer between two computers.
 How it works is that there is a Server and a client computer. Bothe computers brodcast their paddle location,
 but only the server broadcasts the Ball.
 
+Game Play Questions
+-------------------
+-	It's pretty simple. Pick server or client and pick player 1 or 2. 
 
+-	Who ever gets 7 points wins the game.
+
+-	Currently it only works for computers on the same local network.
 
 Required tools
 --------------
