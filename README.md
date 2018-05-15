@@ -14,7 +14,7 @@ but only the server broadcasts the Ball.
 
 Required tools
 --------------
-
+-	Windows Machine
 -	Visual Studio (Language is in C++)
 
 	-	Screenshots for what Visual Studio needs for modifications. https://goo.gl/vDj8Qm
@@ -26,5 +26,22 @@ Required tools
 
 Setup
 -----
--	Clone This project and the Forked modified SFML. 
+-	Make sure Visual Studio is setup. Requirements for VS : https://goo.gl/vDj8Qm
+
+-	Clone This project and the Forked modified SFML into the same directory. 
+	
+	-git clone https://github.com/gitbritt/Multiplayer_Pong
+	
+	-git clone https://github.com/gitbritt/SFML
+	
+	
+Support and Contact
+-------
+-	If there is bugs that you come across, please tell me about it in the issues page
+
+	https://github.com/gitbritt/Multiplayer_Pong/issues
+	
+-	If for some reason the Forked SFML version is not working, visit https://www.sfml-dev.org/ and download it
+	
+	-Here's a link to the tutorial + info page : https://www.sfml-dev.org/learn.php
 	
