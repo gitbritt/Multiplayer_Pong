@@ -1,23 +1,21 @@
 # Multiplayer_Pong
+This project is a re-make of the original Pong game that was developed by Atari in 1972.
 
-# Intro
+# Intro and how it works
+This project was origianlly a project proposed for a school project for a computer networking course at Southern Adventist University.
+The purpose of the project was to develop something using TCP or UDP protocol(Ours uses TCP).
 
-Setup
------
-1.) go to www.sfml-dev.org and download the the latest 32 bit version. I am using Visual Studio for this project.
-	To make things simple and easy, make a folder in C:\ called "SFML(32)" and put the files here. The project is 
-	already configured to use this location. 
-	
-	
-2.)	If you want to put the files in your own location, then you will need to follow these tutorials.
 
-	https://www.kimsgamedev.com/setup-sfml-project-visual-studio-2017/
-	
-	https://www.sfml-dev.org/tutorials/2.4/
-	
-	
-	
-Download the Installer here
+Our idea was to re-creat pong but make it multiplayer between two computers.
+How it works is that there is a Server and a client computer. Bothe computers brodcast their paddle location,
+but only the server broadcasts the Ball.
 
-https://drive.google.com/open?id=1UJv8okK6e1mLlGoe-nY4kWUxPpb7HW5P
 
+
+Required tools
+--------------
+
+-Visual Studio (Language is in C++)
+	-Screenshots for what Visual Studio needs for modifications. https://goo.gl/vDj8Qm
+	
+	
