@@ -18,5 +18,12 @@ Required tools
 -Visual Studio (Language is in C++)
 
 	-Screenshots for what Visual Studio needs for modifications. https://goo.gl/vDj8Qm
+-SFML C++ Library
 	
+	-This is the GUI library used for C++.
 	
+	-A modified version for this project is here : https://github.com/gitbritt/SFML
+
+Setup
+-----
+-	
