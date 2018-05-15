@@ -40,6 +40,8 @@ Setup
 		git clone https://github.com/gitbritt/Multiplayer_Pong
 
 		git clone https://github.com/gitbritt/SFML
+
+-	Switch VS to 32 bit (x86). All the config is set for the 32 bit(x86)
 	
 	
 Support and Contact
