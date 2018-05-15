@@ -16,6 +16,7 @@ Required tools
 --------------
 
 -Visual Studio (Language is in C++)
+
 	-Screenshots for what Visual Studio needs for modifications. https://goo.gl/vDj8Qm
 	
 	
