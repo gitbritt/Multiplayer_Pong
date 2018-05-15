@@ -16,8 +16,8 @@
 
 GUI::GUI(){}				//Init GUI class
 GUI gui;
-Networking::Networking(){}									//Init Networking Class, but this is only used for testing purposes
-Networking Net;												//
+//Networking::Networking(){}									//Init Networking Class, but this is only used for testing purposes
+//Networking Net;												//
 sf::CircleShape ball = gui.ball();							//Defines the ball object
 sf::RectangleShape paddle1 = gui.paddle1();					//Defines the paddle 1
 sf::RectangleShape paddle2 = gui.paddle2();					//Defines the paddle 2
@@ -40,6 +40,7 @@ sf::SocketSelector selector;
 int main()
 {
 	//
+	std::cout << "Test Test Test Test";
 	int player_number;
 	sf::IpAddress ip;
 
