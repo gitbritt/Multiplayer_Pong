@@ -26,4 +26,5 @@ Required tools
 
 Setup
 -----
--	
+-	Clone This project and the Forked modified SFML. 
+	
