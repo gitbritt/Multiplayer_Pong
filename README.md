@@ -1,8 +1,8 @@
-# Multiplayer_Pong
+# Multiplayer Pong
 This project is a re-make of the original Pong game that was developed by Atari in 1972.
 Copy Right for Pong belongs to Atari
 
-Download Game
+# Download Game
 ---------------------
 Go to Stable Installers and download the MSI or just click here : 
 <a href ="https://github.com/gitbritt/Multiplayer_Pong/raw/master/Stable_Installer_versions/Multiplayer_Pong/Setup%20Files/Multiplayer_Pong.msi">Multiplayer_pong.exe</a>
