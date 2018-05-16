@@ -1,5 +1,6 @@
 # Multiplayer_Pong
 This project is a re-make of the original Pong game that was developed by Atari in 1972.
+Copy Right for Pong belongs to Atari
 
 # Intro and how it works
 This project was origianlly a project proposed for a school project for a computer networking course at Southern Adventist University.
