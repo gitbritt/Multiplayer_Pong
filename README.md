@@ -2,6 +2,12 @@
 This project is a re-make of the original Pong game that was developed by Atari in 1972.
 Copy Right for Pong belongs to Atari
 
+Download Game
+---------------------
+Go to Stable Installers and download the MSI or just click here : 
+<a href ="https://github.com/gitbritt/Multiplayer_Pong/raw/master/Stable_Installer_versions/Multiplayer_Pong/Setup%20Files/Multiplayer_Pong.msi">Multiplayer_pong.exe</a>
+
+
 # Intro and how it works
 This project was origianlly a project proposed for a school project for a computer networking course at Southern Adventist University.
 The purpose of the project was to develop something using TCP or UDP protocol(Ours uses TCP).
@@ -19,10 +25,6 @@ Game Play Questions
 
 -	Currently it only works for computers on the same local network.
 
-Install and Play game
----------------------
-Go to Stable Installers and download the MSI or just click here : 
-<a href ="https://github.com/gitbritt/Multiplayer_Pong/raw/master/Stable_Installer_versions/Multiplayer_Pong/Setup%20Files/Multiplayer_Pong.msi">Multiplayer_pong.exe</a>
 
 Development
 -----------
